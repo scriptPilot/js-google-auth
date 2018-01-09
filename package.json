@@ -1,6 +1,6 @@
 {
   "name": "js-google-auth",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": {
     "name": "ScriptPilot",
     "email": "mail@scriptpilot.de"
@@ -10,5 +10,5 @@
     "url": "https://github.com/scriptPilot/js-google-auth.git"
   },
   "license": "MIT",
-  "main": "index.js"
+  "main": "./index.js"
 }
