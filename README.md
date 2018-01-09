@@ -2,7 +2,7 @@
 
 ## Installation
 
-`npm install --save scriptpilot/js-google-auth`
+`npm install --save js-google-auth`
 
 ## Methods
 
