@@ -20,7 +20,7 @@ auth.setPrompt('select_account'); // select_account by default
 auth.setState('someCrazyApplicationState');
 auth.setLoginHint('max@example.com');
 
-// Check if token exists
+// Get token (or null)
 auth.getToken();
 
 // Start sign-in procedure
