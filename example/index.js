@@ -7,7 +7,6 @@ import $ from 'jquery';
 
 /**
  * Load configuration
- * (Workaround with fs-extra, as there is an issue with JSON load by Parcel Bundler)
  */
 
 import config from './config.json';
