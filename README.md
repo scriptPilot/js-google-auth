@@ -1,5 +1,10 @@
 # JavaScript Google OAuth2 Wrapper
 
+This wrapper provides you simplified functionality to handle the Google OAuth2 process. The token is stored in the local storage and will be restored after page reload until you sign-out the user.
+
+More information about the process:
+https://developers.google.com/identity/protocols/OAuth2UserAgent
+
 ## Installation
 
 `npm install --save js-google-auth`
@@ -38,34 +43,46 @@ To set the redirect URI. Must be allowed in the Google API console before.
 
 * redirectUri: string
 
+**addScope(scope)**
 
+To add a scope. You find a list of all scopes here:
+https://developers.google.com/identity/protocols/googlescopes
 
-```js
-// Create new Google Auth object
-const auth = new GoogleAuth();
+* scope: <string>
+  
+**setPrompt(type)**
 
-// Set required values
-auth.setClientId('your-google-client-id');
-auth.setRedirectUri('your-redirect-uri');
-auth.addScope('https://www.googleapis.com/auth/contacts'); // repeat for each scope
+Optional. A space-delimited, case-sensitive list of prompts to present the user. If you don't specify this parameter, the user will be prompted only the first time your app requests access. Possible values are:
 
-// Set optional values
-auth.setPrompt('select_account'); // select_account by default
-auth.setState('someCrazyApplicationState');
-auth.setLoginHint('max@example.com');
+* none
+* consent
+* select_account
 
-// Get token
-auth.getToken(); // returns null if not signed-in
+Default: select_account
 
-// Start sign-in procedure
-auth.signIn();
+**setState(state)**
 
-// Start sign-out procedure
-auth.signOut();
-```
+Specifies any string value that your application uses to maintain state between your authorization request and the authorization server's response. The server returns the exact value that you send as a name=value pair in the hash (#) fragment of the redirect_uri after the user consents to or denies your application's access request.
 
-More information:
-https://developers.google.com/identity/protocols/OAuth2UserAgent
+- state: string
+
+**setLoginHint(hint)**
+
+If your application knows which user is trying to authenticate, it can use this parameter to provide a hint to the Google Authentication Server. The server uses the hint to simplify the login flow either by prefilling the email field in the sign-in form or by selecting the appropriate multi-login session.
+
+- hint: string
+
+**getToken()**
+
+Return the users OAuth2 token or null. Use this method to decide whether the user is signed-in or not.
+
+**signIn()**
+
+Start the sign-in process: Redirect to Google, prompt the login / select account page, come back to your App and update the token information. Or similiar, if you have modiefied the behavior with the methods above.
+
+**signOut()**
+
+Remove the token from the App and the local storage.
 
 ## Example
 
