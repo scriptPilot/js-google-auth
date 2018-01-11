@@ -43,58 +43,58 @@ if (!auth.getToken()) {
 
 ## Methods
 
-**setClientId(clientId)**
+* **setClientId(clientId)**
 
-To set the client ID received from the Google API console.
+  To set the client ID received from the Google API console.
 
-* clientId: string
+  * clientId: string
 
-**setRedirectUri(redirectUri)**
+* **setRedirectUri(redirectUri)**
 
-To set the redirect URI. Must be allowed in the Google API console before.
+  To set the redirect URI. Must be allowed in the Google API console before.
 
-* redirectUri: string
+  * redirectUri: string
 
-**addScope(scope)**
+* **addScope(scope)**
 
-To add a scope. You find a list of all scopes here:
-https://developers.google.com/identity/protocols/googlescopes
+  To add a scope. You find a list of all scopes here:
+  https://developers.google.com/identity/protocols/googlescopes
 
-* scope: <string>
+  * scope: <string>
   
-**setPrompt(type)**
+* **setPrompt(type)**
 
-Optional. A space-delimited, case-sensitive list of prompts to present the user. If you don't specify this parameter, the user will be prompted only the first time your app requests access. Possible values are:
+  Optional. A space-delimited, case-sensitive list of prompts to present the user. If you don't specify this parameter, the user will be prompted only the first time your app requests access. Possible values are:
 
-* none
-* consent
-* select_account
+  * none
+  * consent
+  * select_account
 
-Default: select_account
+  Default: select_account
 
-**setState(state)**
+* **setState(state)**
 
-Specifies any string value that your application uses to maintain state between your authorization request and the authorization server's response. The server returns the exact value that you send as a name=value pair in the hash (#) fragment of the redirect_uri after the user consents to or denies your application's access request.
+  Specifies any string value that your application uses to maintain state between your authorization request and the authorization server's response. The server returns the exact value that you send as a name=value pair in the hash (#) fragment of the redirect_uri after the user consents to or denies your application's access request.
 
-- state: string
+  * state: string
 
-**setLoginHint(hint)**
+* **setLoginHint(hint)**
 
-If your application knows which user is trying to authenticate, it can use this parameter to provide a hint to the Google Authentication Server. The server uses the hint to simplify the login flow either by prefilling the email field in the sign-in form or by selecting the appropriate multi-login session.
+  If your application knows which user is trying to authenticate, it can use this parameter to provide a hint to the Google Authentication Server. The server uses the hint to simplify the login flow either by prefilling the email field in the sign-in form or by selecting the appropriate multi-login session.
 
-- hint: string
+  - hint: string
 
-**getToken()**
+* **getToken()**
 
-Return the users OAuth2 token or null. Use this method to decide whether the user is signed-in or not.
+  Return the users OAuth2 token or null. Use this method to decide whether the user is signed-in or not.
 
-**signIn()**
+* **signIn()**
 
-Start the sign-in process: Redirect to Google, prompt the login / select account page, come back to your App and update the token information. Or similiar, if you have modiefied the behavior with the methods above.
+  Start the sign-in process: Redirect to Google, prompt the login / select account page, come back to your App and update the token information. Or similiar, if you have modiefied the behavior with the methods above.
 
-**signOut()**
+* **signOut()**
 
-Remove the token from the App and the local storage.
+  Remove the token from the App and the local storage.
 
 ## Example
 
