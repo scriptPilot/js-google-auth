@@ -104,5 +104,6 @@ This example will handle the sign-in / sign-out process and display five names o
 
 1. Run `https://github.com/scriptPilot/js-google-auth.git` to clone this repo
 2. Run `cd js-google-auth/example` to open the example folder
-3. Run `npm install` to install all dependencies
-4. Run `npm start` to open the Webpack dev server at localhost:8080
+3. Update values in `config.example.json` and save as `config.json`
+4. Run `npm install` to install all dependencies
+5. Run `npm start` to open the Webpack dev server at localhost:8080
