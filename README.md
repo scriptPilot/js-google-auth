@@ -41,7 +41,7 @@ if (!auth.getToken()) {
 }
 ```
 
-Note: This example needs build with Webpack, Parcel or similar
+Note: You need to build this script with Webpack or similar first. See the example at the page end.
 
 ## Methods
 
