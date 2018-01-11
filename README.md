@@ -100,7 +100,7 @@ Note: You need to build this script with Webpack or similar first. See the examp
 
 ## Example
 
-This example will handle the sign-in / sign-out process and display five names of your Google Contacts.
+This [example](/example) will handle the sign-in / sign-out process and display five names of your Google Contacts.
 
 1. Run `https://github.com/scriptPilot/js-google-auth.git` to clone this repo
 2. Run `cd js-google-auth/example` to open the example folder
