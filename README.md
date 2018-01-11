@@ -63,7 +63,7 @@ Note: This example needs build with Webpack, Parcel or similar
   https://developers.google.com/identity/protocols/googlescopes
 
   * scope: <string>
-  
+
 * **setPrompt(type)**
 
   Optional. A space-delimited, case-sensitive list of prompts to present the user. If you don't specify this parameter, the user will be prompted only the first time your app requests access. Possible values are:
@@ -101,61 +101,10 @@ Note: This example needs build with Webpack, Parcel or similar
 ## Example
 
 This example will handle the sign-in / sign-out process and display five names of your Google Contacts.
-For this example, please install jQuery as well with `npm install --save jquery`.
 
-```js
-/**
- * Load modules
- */
+1. Download the folder `example`
+2. Update values in `config.example.json` as save as `config.json`
+3. Run `npm install` in the example folder
+4. Run `npm start` in the example folder
 
-const Auth = require('js-google-auth');
-const $ = require('jquery');
-
-/**
- * Google authentication object
- */
-
-const auth = new GoogleAuth();
-auth.setClientId('your-google-client-id');
-auth.setRedirectUri('your-redirect-uri');
-auth.addScope('https://www.googleapis.com/auth/contacts');
-
-/**
- * If no access token found
- */
-
-if (!auth.getToken()) {
-
-  // Show sign-in button;
-  const button = $('body').append('<button>Sign-in to Google</button>');
-  button.click($.proxy(auth.signIn, auth));
-
-/**
- * If access token found
- */
-
-} else {
-
-  // Show token
-  $('body').append('<pre><b>Token</b>: ' + auth.getToken() + '</pre>');
-
-  // Show sign-out button
-  const button = $('body').append('<button>Google sign-out</button>');
-  button.click(() => {
-    $.proxy(auth.signOut(), auth);
-    window.location.reload();
-  });
-
-  // Do API request
-  const restUri = 'https://people.googleapis.com/v1/people/me/connections'
-                + '?pageSize=5&personFields=names'
-                + '&access_token=' + auth.getToken();
-  $.get(restUri, data => {
-    $('body').append('<p><b>Contacts</b></p>');
-    data.connections.forEach(contact => {
-      $('body').append('<p>- ' + contact.names[0].displayName + '</p>');
-    });
-  });
-
-}
-```
+The browser should open at `http://localhost:8080` now.

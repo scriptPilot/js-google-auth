@@ -1,0 +1,4 @@
+{
+  "googleClientId": "your-google-client-id",
+  "googleRedirectUrl": "most-probably-the-url-to-the-index-html"
+}
