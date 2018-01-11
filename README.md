@@ -102,9 +102,7 @@ Note: This example needs build with Webpack, Parcel or similar
 
 This example will handle the sign-in / sign-out process and display five names of your Google Contacts.
 
-1. Download the folder `example`
-2. Update values in `config.example.json` as save as `config.json`
-3. Run `npm install` in the example folder
-4. Run `npm start` in the example folder
-
-The browser should open at `http://localhost:8080` now.
+1. Run `https://github.com/scriptPilot/js-google-auth.git` to clone this repo
+2. Run `cd js-google-auth/example` to open the example folder
+3. Run `npm install` to install all dependencies
+4. Run `npm start` to open the Webpack dev server at localhost:8080
