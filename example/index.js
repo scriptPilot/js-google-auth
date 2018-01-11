@@ -20,7 +20,6 @@ const auth = new Auth();
 auth.setClientId(config.googleClientId);
 auth.setRedirectUri(config.googleRedirectUri);
 auth.addScope('https://www.googleapis.com/auth/contacts');
-console.log(config, auth);
 
 /**
  * If no access token found
