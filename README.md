@@ -49,20 +49,20 @@ Note: You need to build this script with Webpack or similar first. See the examp
 
   To set the client ID received from the Google API console.
 
-  * clientId: string
+  * clientId: *string*
 
 * **setRedirectUri(redirectUri)**
 
   To set the redirect URI. Must be allowed in the Google API console before.
 
-  * redirectUri: string
+  * redirectUri: *string*
 
 * **addScope(scope)**
 
   To add a scope. You find a list of all scopes here:
   https://developers.google.com/identity/protocols/googlescopes
 
-  * scope: <string>
+  * scope: *string*
 
 * **setPrompt(type)**
 
@@ -78,13 +78,13 @@ Note: You need to build this script with Webpack or similar first. See the examp
 
   Specifies any string value that your application uses to maintain state between your authorization request and the authorization server's response. The server returns the exact value that you send as a name=value pair in the hash (#) fragment of the redirect_uri after the user consents to or denies your application's access request.
 
-  * state: string
+  * state: *string*
 
 * **setLoginHint(hint)**
 
   If your application knows which user is trying to authenticate, it can use this parameter to provide a hint to the Google Authentication Server. The server uses the hint to simplify the login flow either by prefilling the email field in the sign-in form or by selecting the appropriate multi-login session.
 
-  - hint: string
+  - hint: *string*
 
 * **getToken()**
 
