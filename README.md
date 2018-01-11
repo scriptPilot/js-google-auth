@@ -41,6 +41,8 @@ if (!auth.getToken()) {
 }
 ```
 
+Note: This example needs build with Webpack, Parcel or similar
+
 ## Methods
 
 * **setClientId(clientId)**
