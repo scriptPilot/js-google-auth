@@ -40,11 +40,12 @@ if (!auth.getToken()) {
   $('body').append('<pre><b>Token</b>: ' + auth.getToken() + '</pre>');
 
   // Show sign-out button
-  const button = $('body').append('<button>Google sign-out</button>');
+  const button = $('<button>Google sign-out</button>');
   button.click(() => {
     $.proxy(auth.signOut(), auth);
     window.location.reload();
   });
+  $('body').append(button);
 
   // Do API request
   const restUri = 'https://people.googleapis.com/v1/people/me/connections'
