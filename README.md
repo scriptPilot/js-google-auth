@@ -2,14 +2,16 @@
 
 This wrapper provides you simplified functionality to handle the Google OAuth2 process. The token is stored in the local storage and will be restored after page reload until you sign-out the user.
 
+More information about the process:
+https://developers.google.com/identity/protocols/OAuth2UserAgent
+
 You can use the token to proceed with other wrappers:
 
 * [JavaScript Google Drive Wrapper](https://github.com/scriptPilot/js-google-drive)
 * [JavaScript Google Photos Wrapper](https://github.com/scriptPilot/js-google-photos)
 * [JavaScript Google Contacts Wrapper](https://github.com/scriptPilot/js-google-contacts)
 
-More information about the process:
-https://developers.google.com/identity/protocols/OAuth2UserAgent
+You can use the token as well for any Google REST API.
 
 ## Installation
 
