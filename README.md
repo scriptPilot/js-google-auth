@@ -77,7 +77,7 @@ For this example, please install jQuery as well with `npm install --save jquery`
  * Load modules
  */
 
-const GoogleAuth = require('js-google-auth');
+const Auth = require('js-google-auth');
 const $ = require('jquery');
 
 /**
