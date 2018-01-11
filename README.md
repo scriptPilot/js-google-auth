@@ -21,7 +21,7 @@ You can use the token as well for any other Google REST API.
 
 ```js
 // Load module
-const Auth = require('js-google-auth');
+import Auth from 'js-google-auth';
 
 // Create new instance
 const auth = new Auth();
