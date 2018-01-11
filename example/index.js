@@ -27,9 +27,10 @@ auth.addScope('https://www.googleapis.com/auth/contacts');
 if (!auth.getToken()) {
 
   // Show sign-in button;
-  const button = $('body').append('<button>Sign-in to Google</button>');
+  const button = $('<button>Sign-in to Google</button>');
   button.click($.proxy(auth.signIn, auth));
-
+  $('body').append(button);
+  
 /**
  * If access token found
  */
