@@ -2,7 +2,7 @@
  * Load modules
  */
 
-import Auth from 'js-google-auth';
+import Auth from '../';
 import $ from 'jquery';
 
 /**
