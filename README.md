@@ -1,4 +1,4 @@
-# JavaScript Google OAuth2 Wrapper
+# [WIP] JavaScript Google OAuth2 Wrapper
 
 ## Installation
 
