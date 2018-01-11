@@ -4,7 +4,41 @@
 
 `npm install --save js-google-auth`
 
+## Usage
+
+```js
+// Load module
+const Auth = require('js-google-auth');
+
+// Create new instance
+const auth = new Auth();
+
+// Assign client id and redirect uri
+auth.setClientId('your-google-client-id');
+auth.setRedirectUri('your-redirect-uri');
+
+// Add scope (repeat for each scope)
+auth.addScope('https://www.googleapis.com/auth/contacts');
+
+// Use methods
+auth.signIn();
+```
+
 ## Methods
+
+**setClientId(clientId)**
+
+To set the client ID received from the Google API console.
+
+* clientId: string
+
+**setRedirectUri(redirectUri)**
+
+To set the redirect URI. Must be allowed in the Google API console before.
+
+* redirectUri: string
+
+
 
 ```js
 // Create new Google Auth object
