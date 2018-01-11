@@ -34,7 +34,11 @@ auth.setRedirectUri('your-redirect-uri');
 auth.addScope('https://www.googleapis.com/auth/contacts');
 
 // Use methods
-auth.signIn();
+if (!auth.getToken()) {
+  auth.signIn();
+} else {
+  console.log(`Token: ${auth.getToken()}`);
+}
 ```
 
 ## Methods
