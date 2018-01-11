@@ -9,7 +9,7 @@ const GoogleAuth = class {
    * Constructor
    */
 
-  constructor(token) {
+  constructor() {
     this.setDefaultValues();
     this.checkHashForToken();
     this.checkLocalStorageForToken();
