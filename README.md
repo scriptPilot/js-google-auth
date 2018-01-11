@@ -11,7 +11,7 @@ You can use the token to proceed with other wrappers:
 * [JavaScript Google Photos Wrapper](https://github.com/scriptPilot/js-google-photos)
 * [JavaScript Google Contacts Wrapper](https://github.com/scriptPilot/js-google-contacts)
 
-You can use the token as well for any Google REST API.
+You can use the token as well for any other Google REST API.
 
 ## Installation
 
