@@ -1,4 +1,4 @@
-# JavaScript Google OAuth2 Wrapper
+# [Work in progress] JavaScript Google OAuth2 Wrapper
 
 This wrapper provides you simplified functionality to handle the Google OAuth2 process. The token is stored in the local storage and will be restored after page reload until you sign-out the user.
 
