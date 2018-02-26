@@ -1,4 +1,6 @@
+// eslint-disable-next-line
 const electron = process.versions.electron ? require('electron') : null;
+
 const axios = require('axios');
 const qs = require('qs');
 
