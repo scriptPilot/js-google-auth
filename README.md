@@ -1,6 +1,8 @@
-# [Work in progress] JavaScript Google OAuth2 Wrapper
+# JavaScript Google OAuth2 Wrapper
 
 This wrapper provides you simplified functionality to handle the Google OAuth2 process. The token is stored in the local storage and will be restored after page reload until you sign-out the user.
+
+This module is considered to work in the browser and in Electron applications.
 
 More information about the process:
 https://developers.google.com/identity/protocols/OAuth2UserAgent
@@ -21,17 +23,15 @@ You can use the token as well for any other Google REST API.
 
 ```js
 // Load module
-import Auth from 'js-google-auth';
+import GoogleAuth from 'js-google-auth';
 
 // Create new instance
-const auth = new Auth();
-
-// Assign client id and redirect uri
-auth.setClientId('your-google-client-id');
-auth.setRedirectUri('your-redirect-uri');
-
-// Add scope (repeat for each scope)
-auth.addScope('https://www.googleapis.com/auth/contacts');
+const auth = new GoogleAuth({
+  clientId: 'your-google-client-id',
+  clientSecret: 'your-google-client-secret',
+  redirectUri: 'your-script-uri',
+  scope: ['https://www.googleapis.com/auth/contacts']
+});
 
 // Use methods
 if (!auth.getToken()) {
@@ -41,69 +41,52 @@ if (!auth.getToken()) {
 }
 ```
 
-Note: You need to build this script with Webpack or similar first. See the example at the page end.
-
 ## Methods
 
-* **setClientId(clientId)**
+### constructor(options)
 
-  To set the client ID received from the Google API console.
+While creating a new instance, the constructor method is called.
 
-  * clientId: *string*
+Options:
+- clientId - `string` to receive from the [Google API console](https://console.developers.google.com/)
+- clientSecret - `string` to receive from the [Google API console](https://console.developers.google.com/)
+- redirectUri - `string` to configure in the [Google API console](https://console.developers.google.com/) (not required for Electron)
+- scope - `string/array` one as string or more as array, see [overview at Google](https://developers.google.com/identity/protocols/googlescopes) (optional)
+- onTokenChange - `function` which is called on every token change (optional)
 
-* **setRedirectUri(redirectUri)**
+Example:
+```js
+const auth = new GoogleAuth({
+  clientId: 'your-google-client-id',
+  clientSecret: 'your-google-client-secret',
+  redirectUri: 'your-script-uri',
+  scope: ['https://www.googleapis.com/auth/contacts'],
+  onTokenChange: (token) => {
+    // you can update the Token for other wrappers now
+  }
+});
+```
 
-  To set the redirect URI. Must be allowed in the Google API console before.
+### getToken()
 
-  * redirectUri: *string*
+Returns token or null. Use this function to check if the user is signed-in or not.
 
-* **addScope(scope)**
+### signIn(callback)
 
-  To add a scope. You find a list of all scopes here:
-  https://developers.google.com/identity/protocols/googlescopes
+Starts the sign-in process. In the browser with redirect, in Electron within a new browser window.
 
-  * scope: *string*
+After successful sign-in, the credentials are stored in the local storage and restored after reload.
 
-* **setPrompt(type)**
+The callback function is optional.
 
-  Optional. A space-delimited, case-sensitive list of prompts to present the user. If you don't specify this parameter, the user will be prompted only the first time your app requests access. Possible values are:
+Example:
+```js
+auth.signIn((error) => {
+  if (error) console.error(error);
+  else console.log('signed-in');
+})
+```
 
-  * none
-  * consent
-  * select_account
+### signOut(callback)
 
-  Default: select_account
-
-* **setState(state)**
-
-  Specifies any string value that your application uses to maintain state between your authorization request and the authorization server's response. The server returns the exact value that you send as a name=value pair in the hash (#) fragment of the redirect_uri after the user consents to or denies your application's access request.
-
-  * state: *string*
-
-* **setLoginHint(hint)**
-
-  If your application knows which user is trying to authenticate, it can use this parameter to provide a hint to the Google Authentication Server. The server uses the hint to simplify the login flow either by prefilling the email field in the sign-in form or by selecting the appropriate multi-login session.
-
-  - hint: *string*
-
-* **getToken()**
-
-  Return the users OAuth2 token or null. Use this method to decide whether the user is signed-in or not.
-
-* **signIn()**
-
-  Start the sign-in process: Redirect to Google, prompt the login / select account page, come back to your App and update the token information. Or similiar, if you have modiefied the behavior with the methods above.
-
-* **signOut()**
-
-  Remove the token from the App and the local storage.
-
-## Example
-
-This [example](/example) will handle the sign-in / sign-out process and display five names of your Google Contacts.
-
-1. Run `https://github.com/scriptPilot/js-google-auth.git` to clone this repo
-2. Run `cd js-google-auth/example` to open the example folder
-3. Update values in `config.example.json` and save as `config.json`
-4. Run `npm install` to install all dependencies
-5. Run `npm start` to open the Webpack dev server at localhost:8080
+Removes the credentials from the instance and from the local storage.
