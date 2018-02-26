@@ -25,6 +25,8 @@ const GoogleAuth = class {
     this.loadCredentials();
     // Keep token refreshed
     this.keepTokenRefreshed();
+    // Refresh token at the beginning
+    this.refreshToken();
     // Handle code, given in URI
     this.handleCodeInURI();
   }
