@@ -4,7 +4,7 @@ This wrapper provides you simplified functionality to handle the Google OAuth2 p
 
 This module is considered to work in the browser and in Electron applications.
 
-More information about the process:
+More information about the background process:
 https://developers.google.com/identity/protocols/OAuth2UserAgent
 
 You can use the token to proceed with other wrappers:
@@ -30,7 +30,7 @@ const auth = new GoogleAuth({
   clientId: 'your-google-client-id',
   clientSecret: 'your-google-client-secret',
   redirectUri: 'your-script-uri',
-  scope: ['https://www.googleapis.com/auth/contacts']
+  scope: 'https://www.googleapis.com/auth/contacts'
 });
 
 // Use methods
@@ -60,7 +60,10 @@ const auth = new GoogleAuth({
   clientId: 'your-google-client-id',
   clientSecret: 'your-google-client-secret',
   redirectUri: 'your-script-uri',
-  scope: ['https://www.googleapis.com/auth/contacts'],
+  scope: [
+    'https://www.googleapis.com/auth/contacts',
+    'https://www.googleapis.com/auth/drive'
+  ],
   onTokenChange: (token) => {
     // you can update the Token for other wrappers now
   }
