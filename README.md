@@ -65,7 +65,9 @@ const auth = new GoogleAuth({
     'https://www.googleapis.com/auth/drive'
   ],
   onTokenChange: (token) => {
-    // you can update the Token in your application now
+    // Use this function to update the token
+    // for your custom API scripts.
+    // For our wrappers it is done automatically.
   }
 });
 ```
