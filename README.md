@@ -7,13 +7,7 @@ This module is considered to work in the browser and in Electron applications.
 More information about the background process:
 https://developers.google.com/identity/protocols/OAuth2UserAgent
 
-You can use the token to proceed with other wrappers:
-
-* [JavaScript Google Drive Wrapper](https://github.com/scriptPilot/js-google-drive)
-* [JavaScript Google Photos Wrapper](https://github.com/scriptPilot/js-google-photos)
-* [JavaScript Google Contacts Wrapper](https://github.com/scriptPilot/js-google-contacts)
-
-You can use the token as well for any other Google REST API.
+You can use the token for any Google REST API.
 
 ## Installation
 
